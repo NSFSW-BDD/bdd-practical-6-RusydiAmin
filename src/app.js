@@ -19,6 +19,9 @@ app.use(express.urlencoded({extended:false}));
 //////////////////////////////////////////////////////
 const mainRoutes = require('./routes/mainRoutes');
 app.use("/", mainRoutes);
+app.get("/", (req, res) => {
+    res.send('I am Alive!');
+})
 
 //////////////////////////////////////////////////////
 // EXPORT APP
