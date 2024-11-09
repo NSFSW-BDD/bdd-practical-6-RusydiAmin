@@ -3,7 +3,7 @@ const userController = require("../controllers/userController");
 const jwtMiddleware=require("../middlewares/jwtMiddleware");
 const router = express.Router();
 
-router.get('/', userController.readAllUser);
+router.get('/', jwtMiddleware.verifyToken, jwtMiddleware.verifyAdmin, userController.readAllUser);
 router.post('/',userController.createNewUser);
 
 router.get('/:userid', userController.readUserById);
