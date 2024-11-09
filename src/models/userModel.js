@@ -49,6 +49,18 @@ var userModel = {
         const VALUES = [data.userid];
 
         pool.query(SQLSTATEMENT, VALUES, callback);
+    },
+
+    // authetication
+    loginUser: (data, callback) => {
+        const SQLSTATEMENT = `
+            SELECT * FROM user
+            WHERE email=?
+            AND password=?;
+            `;
+        const VALUES = [data.email, data.password];
+
+        pool.query(SQLSTATEMENT, VALUES, callback);
     }
 }
 

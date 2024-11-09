@@ -10,4 +10,6 @@ router.get('/:userid', userController.readUserById);
 router.put('/:userid', userController.updateUserById);
 router.delete('/:userid', userController.deleteUserById);
 
+router.post('/login', userController.loginUser, jwtMiddleware.generateToken, jwtMiddleware.sendToken);
+
 module.exports = router;
